@@ -114,7 +114,8 @@ $sf_buf=function(){ ob_start(); try{ sf_render_section($GLOBALS['section']); }ca
    error_log('admin.php render '.$GLOBALS['section'].': '.$ex->getMessage().' @ '.$ex->getFile().':'.$ex->getLine());
    echo '<div class="notice" style="border:1px solid #c00;padding:1em;margin:1em;background:#fee"><h2>Ошибка отображения раздела «'.$GLOBALS['section'].'»</h2><p><b>'.e($ex->getMessage()).'</b></p><p>Файл: <code>'.e($ex->getFile()).':'.$ex->getLine().'</code></p><p><a href="?health=1">Проверка базы данных</a> · <a href="?section=dashboard">← В обзор</a></p></div>';
  }
- if(!empty($GLOBALS['sf_migrate_errors'])){ echo '<div class="notice" style="border:1px solid #a60;background:#fff7e6;padding:.8em;margin:1em">'; foreach($GLOBALS['sf_migrate_errors'] as $t=>$m) echo 'Проблема со схемой («'.e($t).'»): '.e($mb:=$m ?? $m).'<br>'; echo 'Откройте <a href="?health=1">?health=1</a> для диагностики.</div>'; }
+ if(!empty($GLOBALS['sf_migrate_errors'])){ echo '<div class="notice" style="border:1px solid #a60;background:#fff7e6;padding:.8em;margin:1em">'; foreach($GLOBALS['sf_migrate_errors'] as $t=>$m) echo 'Проблема со схемой («'.e((string)$t).'»): '.e((string)$m).'<br>'; echo 'Откройте <a href="?health=1">?health=1</a> для диагностики.</div>'; }
+ foot_admin();
  ob_end_flush(); };
  function sf_render_section(string $section): void {
 
