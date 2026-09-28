@@ -1,0 +1,12 @@
+/*
+Theme Name: Тёмная
+sf_theme: dark
+Description: Демонстрационная тёмная тема оформления сайта.
+Version: 1.0
+*/
+:root{--bg:#14181f;--card:#1e242e;--text:#dfe6ee;--muted:#8b97a6;--accent:#5ab0ff}
+body{background:var(--bg);color:var(--text)}
+.site-header,.site-footer{background:#0f1319}
+.card,.editor,input,textarea,select{background:var(--card);color:var(--text);border-color:#2c3542}
+a{color:var(--accent)}
+.comment,.article{border-color:#2c3542}

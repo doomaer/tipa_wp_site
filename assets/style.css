@@ -31,3 +31,6 @@
 .hint{color:var(--muted);font-size:.9rem}
 .install-plugins table td,.install-themes table td{vertical-align:top}
 .plugin-meta small{color:var(--muted)}
+.ok-badge{display:inline-block;padding:.15rem .5rem;border-radius:12px;background:#e7f6ec;color:#1c7a34;font-size:.85rem}
+.sf-banner{background:var(--brand);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.95rem}
+.sf-plugin-buttons{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
