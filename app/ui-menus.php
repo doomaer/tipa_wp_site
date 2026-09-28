@@ -34,7 +34,7 @@ if($current){ $iq=db()->prepare('SELECT * FROM menu_items WHERE menu_id=? ORDER 
       <optgroup label="Категории"><?php foreach(db()->query("SELECT id,name FROM categories ORDER BY name") as $c):?><option value="c:<?=$c['id']?>"><?=e($c['name'])?></option><?php endforeach;?></optgroup>
      </select>
     </div>
-    <label data-show="custom">URL ссылки<input name="url2" placeholder="https://example.com или /kontakty"></label>
+    <label data-show="custom">URL ссылки<input name="url" placeholder="https://example.com или /kontakty"></label>
     <label>Текст пункта<input name="label" placeholder="Пусто — возьмётся название записи"></label>
     <label>Вложить в<select name="parent_id"><option value="0">Без родителя (верхний уровень)</option><?php foreach($items as $opt):?><option value="<?=$opt['id']?>"><?=e($opt['label'])?></option><?php endforeach;?></select></label>
     <label class="check"><input type="checkbox" name="target" value="1"> Открывать в новом окне</label>
