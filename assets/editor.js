@@ -19,6 +19,10 @@ document.querySelectorAll('textarea.rich').forEach(function(src){
  getJson('editor-data.php').then(function(rows){var s=bar.querySelector('[data-a="button"]');rows.forEach(function(b){s.add(new Option(b.label+' ('+b.name+')',JSON.stringify(b)))})}).catch(function(){});
  src.closest('form').addEventListener('submit',function(){if(!sourceMode)src.value=ed.innerHTML});
  });
+
+/* Toggle panels & checkbox-linked inputs (buttons UI) */
+document.querySelectorAll('[data-action="toggle"]').forEach(function(btn){btn.addEventListener('click',function(){var p=document.querySelector('[data-panel="'+btn.getAttribute('data-toggle')+'"]');if(p)p.hidden=!p.hidden})});
+document.querySelectorAll('.pick input[type=checkbox]').forEach(function(cb){var inp=cb.closest('label').querySelector('.sub-label');if(!inp)return;var sync=function(){inp.disabled=!cb.checked};cb.addEventListener('change',sync);sync()});
 var aside=document.querySelector('.admin aside');if(aside){[['media.php','Медиа'],['site-structure.php','Главная и блог']].forEach(function(x){var a=document.createElement('a');a.href=x[0];a.textContent=x[1];aside.insertBefore(a,aside.lastElementChild)})}
 document.querySelectorAll('form input[name="menu_id"]').forEach(function(input){var form=input.form,link=document.createElement('select');link.innerHTML='<option value="">Выбрать созданную страницу…</option>';link.style.width='auto';input.parentNode.insertBefore(link,input.nextSibling);getJson('pages-data.php').then(function(pages){pages.forEach(function(p){link.add(new Option(p.title,'/'+p.slug))});link.onchange=function(){if(!link.value)return;var url=form.querySelector('[name="url"]'),label=form.querySelector('[name="label"]');url.value=link.value;if(!label.value)label.value=link.options[link.selectedIndex].text}})})
 })();

@@ -10,3 +10,6 @@
     # CMS routes: /login, /admin, /post/slug, /blog, and pages.
     RewriteRule ^ index.php [QSA,L]
 </IfModule>
+
+# Block direct access to internal folders (session files, core).
+RedirectMatch 403 ^/(sessions|app)/
