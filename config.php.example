@@ -1,0 +1,6 @@
+<?php
+// This file is created automatically by the web installer.
+return [
+    'db_host' => 'localhost', 'db_name' => 'site', 'db_user' => 'root', 'db_pass' => '',
+    'base_url' => '',
+];

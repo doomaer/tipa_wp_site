@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /site/
+
+    # Existing files and directories (assets, admin.php, images) are served directly.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # CMS routes: /login, /admin, /post/slug, /blog, and pages.
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
